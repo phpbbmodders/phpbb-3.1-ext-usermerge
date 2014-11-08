@@ -56,7 +56,7 @@ class usermerge_module
 		$this->php_ext = $phpEx;
 
 		// Add the use merge ACP lang file
-		$this->user->add_lang_ext('rmcgirr83/usermerge', 'usermerge_acp');
+		$this->user->add_lang_ext('rmcgirr83/usermerge', 'acp_usermerge');
 
 		// Load a template from adm/style for our ACP page
 		$this->tpl_name = 'acp_usermerge';
@@ -97,7 +97,7 @@ class usermerge_module
 				// Let's roll!
 				$this->user_merge($old_user_id, $new_user_id);
 
-				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_USERS_MERGED', time(), $old_username . ' &raquo; ' . $new_username);
+				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_USERS_MERGED', time(), array($old_username . ' &raquo; ' . $new_username));
 
 				trigger_error($this->user->lang['USERS_MERGED'] . adm_back_link($this->u_action));
 			}
@@ -131,6 +131,7 @@ class usermerge_module
 
 			'L_TITLE'					=> $this->user->lang['ACP_USER_MERGE_TITLE'],
 			'L_EXPLAIN'					=> $this->user->lang['ACP_USER_MERGE_EXPLAIN'],
+			'USERMERGE_VERSION'			=> $user_merge_version,
 			'U_ACTION'					=> $this->u_action,
 		));
 	}
