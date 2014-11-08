@@ -98,7 +98,7 @@ class usermerge_module
 				$this->user_merge($old_user_id, $new_user_id);
 
 				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_USERS_MERGED', time(), $old_username . ' &raquo; ' . $new_username);
-				
+
 				trigger_error($this->user->lang['USERS_MERGED'] . adm_back_link($this->u_action));
 			}
 			else

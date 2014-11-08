@@ -35,5 +35,3 @@ $lang = array_merge($lang, array(
 	'VERSION' 			=> 'Version',
 	'LOG_USERS_MERGED'	=> '<strong>Merged users</strong><br />%s',
 ));
-
-?>

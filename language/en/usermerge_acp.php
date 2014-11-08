@@ -59,4 +59,3 @@ $lang = array_merge($lang, array(
 	'NEW_USER'					=> 'New username',
 	'NEW_USER_EXPLAIN'	=> 'The new user that the other user should be merged into.  This user must already exist.',
 ));
-?>
