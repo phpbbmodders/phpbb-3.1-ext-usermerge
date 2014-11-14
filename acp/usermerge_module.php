@@ -143,7 +143,7 @@ class usermerge_module
 	 * @param array &$errors - Errors array to work with
 	 * @return mixed - Return the user's ID (integer) if valid, return void if there was an error
 	 */
-	public function check_user($username, &$errors, $old_user)
+	private function check_user($username, &$errors, $old_user)
 	{
 		// Grabbeth the old user's ID
 		if (!empty($username))
@@ -195,7 +195,7 @@ class usermerge_module
 	 *
 	 * @return void
 	 */
-	public function user_merge($old_user, $new_user)
+	private function user_merge($old_user, $new_user)
 	{
 		if (!function_exists('user_add'))
 		{
