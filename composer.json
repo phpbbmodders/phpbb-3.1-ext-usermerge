@@ -1,8 +1,8 @@
 {
-	"name": "rmcgirr83/usermerge",
+	"name": "phpbbmodders/usermerge",
 	"type": "phpbb-extension",
 	"description": "Allows administrators to merge the accounts of two users",
-	"homepage": "https://github.com/RMcGirr83/phpBB-3.1-ext-usermerge",
+	"homepage": "https://github.com/phpbbmodders/phpBB-3.1-ext-usermerge",
 	"version": "1.0.0",
 	"time": "2014-11-08",
 	"keywords": ["phpbb", "extension", "user merge"],
@@ -10,8 +10,8 @@
 	"authors": [
 		{
 			"name": "Rich McGirr",
-			"homepage": "http://rmcgirr83.org",
-			"email": "rmcgirr83@rmcgirr83.org",
+			"homepage": "http://phpbbmodders.net",
+			"email": "rmcgirr83@phpbbmodders.net",
 			"role": "Developer"
 		}
 	],

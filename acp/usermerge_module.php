@@ -7,7 +7,7 @@
 *
 */
 
-namespace rmcgirr83\usermerge\acp;
+namespace phpbbmodders\usermerge\acp;
 
 class usermerge_module
 {
@@ -54,9 +54,6 @@ class usermerge_module
 		$this->user = $user;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $phpEx;
-
-		// Add the use merge ACP lang file
-		$this->user->add_lang_ext('rmcgirr83/usermerge', 'acp_usermerge');
 
 		// Load a template from adm/style for our ACP page
 		$this->tpl_name = 'acp_usermerge';

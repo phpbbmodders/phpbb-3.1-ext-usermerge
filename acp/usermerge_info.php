@@ -7,7 +7,7 @@
 *
 */
 
-namespace rmcgirr83\usermerge\acp;
+namespace phpbbmodders\usermerge\acp;
 
 /**
 * @package module_install
@@ -17,11 +17,11 @@ class usermerge_info
 	function module()
 	{
 		return array(
-			'filename'	=> 'rmcgirr83\usermerge\acp\usermerge_module',
+			'filename'	=> 'phpbbmodders\usermerge\acp\usermerge_module',
 			'title'		=> 'ACP_USER_MERGE',
 			'version'	=> '1.0.0',
 			'modes'		=> array(
-				'main'	=> array('title' => 'ACP_USER_MERGE', 'auth'	=> 'ext_rmcgirr83/usermerge && acl_a_user', 'cat'	=> array('ACP_CAT_USERS')),
+				'main'	=> array('title' => 'ACP_USER_MERGE', 'auth'	=> 'ext_phpbbmodders/usermerge && acl_a_user', 'cat'	=> array('ACP_CAT_USERS')),
 			),
 		);
 	}

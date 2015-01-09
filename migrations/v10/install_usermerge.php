@@ -2,12 +2,12 @@
 /**
 *
 * @package User Merge
-* @copyright (c) 2014 RMcGirr83
+* @copyright (c) 2015 RMcGirr83
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-namespace rmcgirr83\usermerge\migrations;
+namespace phpbbmodders\usermerge\migrations\v10;
 
 class install_usermerge extends \phpbb\db\migration\migration
 {
@@ -30,8 +30,8 @@ class install_usermerge extends \phpbb\db\migration\migration
 				'acp',
 				'ACP_CAT_USERS',
 				array(
-					'module_basename'	=> '\rmcgirr83\usermerge\acp\usermerge_module',
-					'auth'				=> 'ext_rmcgirr83/usermerge && acl_a_user',
+					'module_basename'	=> '\phpbbmodders\usermerge\acp\usermerge_module',
+					'auth'				=> 'ext_phpbbmodders/usermerge && acl_a_user',
 					'modes'				=> array('main'),
 				),
 			)),
@@ -47,7 +47,7 @@ class install_usermerge extends \phpbb\db\migration\migration
 				'acp',
 				'ACP_CAT_USERS',
 				array(
-					'module_basename'	=> '\rmcgirr83\usermerge\acp\usermerge_module',
+					'module_basename'	=> '\phpbbmodders\usermerge\acp\usermerge_module',
 				),
 			)),
 		);
