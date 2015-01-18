@@ -305,10 +305,15 @@ class usermerge_module
 				$sql_ary['bcc_address'] = $this->replace_recipients($u_old_user, $u_new_user, $row['bcc_address']);
 			}
 
-			$sql = 'UPDATE ' . PRIVMSGS_TABLE . '
-					SET ' . $this->db->sql_build_array('UPDATE', $sql_ary) . '
-					WHERE msg_id = ' . (int) $row['msg_id'];
-			$this->db->sql_query($sql);
+			// The query above will catch more than is wanted.
+			// Search for user id 5 will also return user ids 50-59 and 500-599 and so on.
+			if (!empty($sql_ary))
+			{
+				$sql = 'UPDATE ' . PRIVMSGS_TABLE . '
+						SET ' . $this->db->sql_build_array('UPDATE', $sql_ary) . '
+						WHERE msg_id = ' . (int) $row['msg_id'];
+				$this->db->sql_query_limit($sql, 1);
+			}
 		}
 
 		user_delete('remove', $old_user);
