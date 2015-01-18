@@ -278,6 +278,61 @@ class usermerge_module
 			}
 		}
 
+		// We need to handle PM to_address and bcc_address separately.
+		$u_old_user = "u_$old_user"; // $old_user is casted to int somewhere around line 202 and not changed after that.
+		$u_new_user = "u_$new_user";
+		$sql = 'SELECT msg_id, to_address, bcc_address FROM ' . PRIVMSGS_TABLE . "
+				WHERE to_address LIKE '%$u_old_user%'
+					OR bcc_address LIKE '%$u_old_user%'";
+		$result	= $this->db->sql_query($sql);
+		$rowset	= $this->db->sql_fetchrowset($result);
+		$this->db->sql_freeresult($result);
+
+		foreach ($rowset as $row)
+		{
+			$sql_ary = array();
+			// A user should no be able to be in both to_address and bcc_address.
+			// But someone might have been messing with the DB.
+			if (strpos($row['to_address'], $u_old_user) !== false)
+			{
+				$sql_ary['to_address'] = $this->replace_recipients($u_old_user, $u_new_user, $row['to_address']);
+			}
+
+			if (strpos($row['bcc_address'], $u_old_user) !== false)
+			{
+				$sql_ary['bcc_address'] = $this->replace_recipients($u_old_user, $u_new_user, $row['bcc_address']);
+			}
+
+			$sql = 'UPDATE ' . PRIVMSGS_TABLE . '
+					SET ' . $this->db->sql_build_array('UPDATE', $sql_ary) . '
+					WHERE msg_id = ' . (int) $row['msg_id'];
+			$this->db->sql_query($sql);
+		}
+
 		user_delete('remove', $old_user);
+	}
+
+	/**
+	 * Replaces the old recipient id with the new one.
+	 *
+	 * @param str $u_old_user,	'u_' . old user id
+	 * @param str $u_new_user,	'u_' . new user id
+	 * @param str $id_string,	string with 'to_address' or 'bcc_address' directly from the DB.
+	 */
+	private function replace_recipients($u_old_user, $u_new_user, $id_string)
+	{
+		$recipients = explode(':', $id_string);
+
+		foreach ($recipients as &$recipient)
+		{
+			if ($recipient == $u_old_user)
+			{
+				$recipient = $u_new_user;
+			}
+		}
+		unset($recipient);
+
+		$return = implode(':', $recipients);
+		return($return);
 	}
 }
