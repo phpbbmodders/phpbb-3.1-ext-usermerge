@@ -241,6 +241,8 @@ class usermerge_module
 			POSTS_TABLE				=> array(array('poster_id', 'post_username'), 'post_edit_user'),
 			POLL_VOTES_TABLE		=> array('vote_user_id'),
 			PRIVMSGS_TABLE			=> array('author_id', 'message_edit_user'),
+			PRIVMSGS_FOLDER_TABLE	=> array('user_id'),
+			PRIVMSGS_RULES_TABLE	=> array('user_id', 'rule_user_id'),
 			PRIVMSGS_TO_TABLE		=> array('user_id', 'author_id'),
 			REPORTS_TABLE			=> array('user_id'),
 			TOPICS_TABLE			=> array(array('topic_poster', 'topic_first_poster_name', 'topic_first_poster_colour'), array('topic_last_poster_id', 'topic_last_poster_name', 'topic_last_poster_colour')),
