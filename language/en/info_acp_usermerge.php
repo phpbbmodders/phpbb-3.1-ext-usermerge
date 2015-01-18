@@ -41,7 +41,7 @@ $lang = array_merge($lang, array(
 
 	'USERS_MERGED'				=> 'The specified users were successfully merged.',
 	'MERGE_USERS'				=> 'Merge Users',
-	'MERGE_USERS_CONFIRM'		=> 'Are you sure you wish to merge these users?',
+	'MERGE_USERS_CONFIRM'		=> 'Are you sure you wish to merge these users?<br /><strong>%s will be deleted, there is no return after this.</strong>',
 	'ACP_USER_MERGE_TITLE'		=> 'Merge Users',
 	'ACP_USER_MERGE_EXPLAIN'	=> 'Here you can merge two users into one user.  Please note that the old user will be deleted and only the content made by that user will be transferred to the new user.',
 

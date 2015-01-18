@@ -109,7 +109,8 @@ class usermerge_module
 				);
 
 				// Be annoying.  Are you suuuuuuuuuuuure?  No, really, are you sure?
-				confirm_box(false, $this->user->lang['MERGE_USERS_CONFIRM'], build_hidden_fields($hidden_fields));
+				$merge_users_confirm = sprintf($this->user->lang['MERGE_USERS_CONFIRM'], $old_username);
+				confirm_box(false, $merge_users_confirm, build_hidden_fields($hidden_fields));
 			}
 		}
 
