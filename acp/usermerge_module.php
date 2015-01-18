@@ -88,6 +88,12 @@ class usermerge_module
 		// Make sure we have submitted the form, and that we do not have errors
 		if(($this->request->is_set_post('submit') || $merge) && !sizeof($errors))
 		{
+			if ($old_user_id == $new_user_id)
+			{
+				$warning = sprintf($this->user->lang['CANNOT_MERGE_SAME'], $old_username);
+				trigger_error($warning . adm_back_link($this->u_action), E_USER_WARNING);
+			}
+
 			// Have we confirmed this change?
 			if(confirm_box(true))
 			{

@@ -38,6 +38,7 @@ $lang = array_merge($lang, array(
 	'NO_USER_SPECIFIED'			=> 'A user for merging was not specified.',
 	'CANNOT_MERGE_SELF'			=> 'You are trying to delete yourself.',
 	'CANNOT_MERGE_FOUNDER'		=> 'Founders can only be deleted by other founders.',
+	'CANNOT_MERGE_SAME'			=> 'You cannot merge the user account <strong>%s</strong> with itself.',
 
 	'USERS_MERGED'				=> 'The specified users were successfully merged.',
 	'MERGE_USERS'				=> 'Merge Users',
