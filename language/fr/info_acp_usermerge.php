@@ -1,13 +1,13 @@
 <?php
- /**
- *
- * @package phpBB Extension - User Merge
- * @author RMcGirr83  (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25)
- * @copyright (c) 2014 phpbbmodders.net
- * @license GNU General Public License, version 2 (GPL-2.0)
- * @translated into French by Galixte (http://www.galixte.com)
- *
- */
+/**
+*
+* @package phpBB Extension - User Merge
+* @author RMcGirr83  (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25)
+* @copyright (c) 2014 phpbbmodders.net
+* @license GNU General Public License, version 2 (GPL-2.0)
+* @translated into French by Galixte (http://www.galixte.com)
+*
+*/
 
 /**
 * @ignore
