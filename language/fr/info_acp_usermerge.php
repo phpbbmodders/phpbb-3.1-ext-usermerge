@@ -38,8 +38,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” …
 //
 
-$lang = array_merge($lang, array(
-
 // Create the lang array if it does not already exist
 if (empty($lang) || !is_array($lang))
 {
