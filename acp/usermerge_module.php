@@ -163,7 +163,7 @@ class usermerge_module
 			// No such user.  o_0
 			if (!$user_id)
 			{
-				$errors[] = $this->user->lang['NO_USER'];
+				$errors[] = $this->user->lang['NO_USER_FOR_MERGE'];
 				return;
 			}
 		}
