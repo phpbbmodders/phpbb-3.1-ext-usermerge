@@ -61,7 +61,7 @@ $lang = array_merge($lang, array(
 	'MERGE_USERS'				=> 'Fusionner des utilisateurs',
 	'MERGE_USERS_CONFIRM'		=> 'Confirmer la fusion de ces utilisateurs ?<br /><strong>%s sera supprimé, une fois la fusion réalisée il n’est pas possible d’annuler cette action.</strong>',
 	'ACP_USER_MERGE_TITLE'		=> 'Fusionner des utilisateurs',
-	'ACP_USER_MERGE_EXPLAIN'	=> 'sur cette page il est possible de fusionner deux utilisateurs en un utilisateur. Merci de noter que l’ancien utilisateur sera supprimé et que seul son contenu sera transféré au nouvel utilisateur.',
+	'ACP_USER_MERGE_EXPLAIN'	=> 'Sur cette page il est possible de fusionner deux utilisateurs en un utilisateur. Merci de noter que l’ancien utilisateur sera supprimé et que seul son contenu sera transféré au nouvel utilisateur.',
 
 //	'LOG_USERS_MERGED'	=> '<strong>Utilisateurs fusionnés</strong>',
 
