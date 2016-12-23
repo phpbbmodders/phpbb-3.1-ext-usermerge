@@ -57,7 +57,7 @@ class usermerge_module
 
 		// Add the pages ACP lang file
 		$this->user->add_lang_ext('phpbbmodders/usermerge', 'acp_usermerge');
-		
+
 		// Load a template from adm/style for our ACP page
 		$this->tpl_name = 'acp_usermerge';
 
@@ -77,19 +77,19 @@ class usermerge_module
 		add_form_key($form_key);
 
 		// Hath we an invalid form key?
-		if($this->request->is_set_post('submit') && !check_form_key($form_key))
+		if ($this->request->is_set_post('submit') && !check_form_key($form_key))
 		{
 			$errors[] = $user->lang['FORM_INVALID'];
 		}
 
-		if($this->request->is_set_post('submit') || $merge)
+		if ($this->request->is_set_post('submit') || $merge)
 		{
 			$old_user_id = $this->check_user($old_username, $errors, true);
 			$new_user_id = $this->check_user($new_username, $errors, false);
 		}
 
 		// Make sure we have submitted the form, and that we do not have errors
-		if(($this->request->is_set_post('submit') || $merge) && !sizeof($errors))
+		if (($this->request->is_set_post('submit') || $merge) && !sizeof($errors))
 		{
 			if ($old_user_id == $new_user_id)
 			{
@@ -98,7 +98,7 @@ class usermerge_module
 			}
 
 			// Have we confirmed this change?
-			if(confirm_box(true))
+			if (confirm_box(true))
 			{
 				// Let's roll!
 				$this->user_merge($old_user_id, $new_user_id);
@@ -177,14 +177,14 @@ class usermerge_module
 		}
 
 		// Check to see if it is ourselves here
-		if($user_id === (int) $this->user->data['user_id'] && $old_user)
+		if ($user_id === (int) $this->user->data['user_id'] && $old_user)
 		{
 			$errors[] = $this->user->lang['CANNOT_MERGE_SELF'];
 			return;
 		}
 
 		// Make sure we aren't messing with a founder
-		if($user_type === USER_FOUNDER && $old_user && $this->user->data['user_type'] !== USER_FOUNDER)
+		if ($user_type === USER_FOUNDER && $old_user && $this->user->data['user_type'] !== USER_FOUNDER)
 		{
 			$errors[] = $this->user->lang['CANNOT_MERGE_FOUNDER'];
 			return;
@@ -220,7 +220,7 @@ class usermerge_module
 			FROM ' . USERS_TABLE . '
 			WHERE ' . $this->db->sql_in_set('user_id', array($old_user, $new_user));
 		$result = $this->db->sql_query($sql);
-		while($return = $this->db->sql_fetchrow($result))
+		while ($return = $this->db->sql_fetchrow($result))
 		{
 			$total_posts = $total_posts + (int) $return['user_posts'];
 		}
