@@ -55,6 +55,9 @@ class usermerge_module
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->php_ext = $phpEx;
 
+		// Add the pages ACP lang file
+		$this->user->add_lang_ext('phpbbmodders/usermerge', 'acp_usermerge');
+		
 		// Load a template from adm/style for our ACP page
 		$this->tpl_name = 'acp_usermerge';
 
@@ -163,7 +166,7 @@ class usermerge_module
 			// No such user.  o_0
 			if (!$user_id)
 			{
-				$errors[] = $this->user->lang['NO_USER_FOR_MERGE'];
+				$errors[] = $this->user->lang['NO_USER'];
 				return;
 			}
 		}

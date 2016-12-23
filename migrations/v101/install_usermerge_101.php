@@ -7,9 +7,9 @@
 *
 */
 
-namespace phpbbmodders\usermerge\migrations\v10;
+namespace phpbbmodders\usermerge\migrations\v101;
 
-class install_usermerge extends \phpbb\db\migration\migration
+class install_usermerge_101 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
@@ -18,7 +18,7 @@ class install_usermerge extends \phpbb\db\migration\migration
 
 	static public function depends_on()
 	{
-		return array('\phpbb\db\migration\data\v310\gold');
+		return array('\phpbbmodders\usermerge\migrations\v10\install_usermerge');
 	}
 
 	public function update_data()
