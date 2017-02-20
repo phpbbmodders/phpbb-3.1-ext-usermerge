@@ -1,19 +1,12 @@
 <?php
 /**
- *
- *===================================================================
- *
- *  User Merge -- ACP Module File
- *-------------------------------------------------------------------
- *	Script info:
- * Version:		1.2.0
- * Copyright:	(c) 2009 - phpBBModders.net
- * License:		http://opensource.org/licenses/gpl-license.php | GNU Public License v2
- * Package:		Language [en]
- *
- *===================================================================
- *
- */
+*
+* User Merge extension for the phpBB Forum Software package.
+*
+* @copyright (c) 2015 RMcGirr83 (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25) <http://www.phpbbmodders.net>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
 
 /**
 * @ignore
@@ -33,7 +26,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'VERSION' 			=> 'Version',
 	'LOG_USERS_MERGED'	=> '<strong>Merged users</strong><br />%s',
-	'NO_USER'					=> 'A specified user for merging could not be located within the database.',
+	'NO_USER_FOR_MERGE'			=> 'A specified user for merging could not be located within the database.',
 	'NO_USER_SPECIFIED'			=> 'A user for merging was not specified.',
 	'CANNOT_MERGE_SELF'			=> 'You are trying to delete yourself.',
 	'CANNOT_MERGE_FOUNDER'		=> 'Founders can only be deleted by other founders.',

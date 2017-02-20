@@ -1,20 +1,13 @@
 <?php
 /**
- *
- *===================================================================
- *
- *  User Merge -- ACP Module File
- *-------------------------------------------------------------------
- *	Script info:
- * Version:		1.2.0
- * Copyright:	(c) 2009 - phpBBModders.net
- * License:		http://opensource.org/licenses/gpl-license.php | GNU Public License v2
- * Package:		Language [ar]
- *
- * Translated By : Bassel Taha Alhitary - www.alhitary.net
- *===================================================================
- *
- */
+*
+* User Merge extension for the phpBB Forum Software package.
+* Translated By : Bassel Taha Alhitary - www.alhitary.net
+
+* @copyright (c) 2015 RMcGirr83 (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25) <http://www.phpbbmodders.net>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
 
 /**
 * @ignore
@@ -34,7 +27,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'VERSION' 			=> 'الإصدار ',
 	'LOG_USERS_MERGED'	=> '<strong>دمج الأعضاء</strong><br />%s',
-	'NO_USER'					=> 'العضو المُحدد للدمج غير موجود في قاعدة البيانات.',
+	'NO_USER_FOR_MERGE'					=> 'العضو المُحدد للدمج غير موجود في قاعدة البيانات.',
 	'NO_USER_SPECIFIED'			=> 'لم يتم تحديد أحد الأعضاء للدمج.',
 	'CANNOT_MERGE_SELF'			=> 'أنت تحاول حذف حساب عضويتك.',
 	'CANNOT_MERGE_FOUNDER'		=> 'لا يمكن حذف المؤسسين إلا بواسطة مؤسسين آخرين فقط.',

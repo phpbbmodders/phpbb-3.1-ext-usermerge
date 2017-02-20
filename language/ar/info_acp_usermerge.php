@@ -1,20 +1,13 @@
 <?php
 /**
- *
- *===================================================================
- *
- *  User Merge -- ACP Module File
- *-------------------------------------------------------------------
- *	Script info:
- * Version:		1.2.0
- * Copyright:	(c) 2009 - phpBBModders.net
- * License:		http://opensource.org/licenses/gpl-license.php | GNU Public License v2
- * Package:		Language [ar]
- *
- * Translated By : Bassel Taha Alhitary - www.alhitary.net
- *===================================================================
- *
- */
+*
+* User Merge extension for the phpBB Forum Software package.
+* Translated By : Bassel Taha Alhitary - www.alhitary.net
+*
+* @copyright (c) 2015 RMcGirr83 (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25) <http://www.phpbbmodders.net>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
 
 /**
 * @ignore
