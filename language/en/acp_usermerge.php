@@ -25,10 +25,10 @@ if (empty($lang) || !is_array($lang))
 // Merge the following language entries into the lang array
 $lang = array_merge($lang, array(
 	'VERSION' 			=> 'Version',
-	'LOG_USERS_MERGED'	=> '<strong>Merged users</strong><br />%s',
 	'NO_USER_FOR_MERGE'			=> 'A specified user for merging could not be located within the database.',
 	'NO_USER_SPECIFIED'			=> 'A user for merging was not specified.',
-	'CANNOT_MERGE_SELF'			=> 'You are trying to delete yourself.',
+	'CANNOT_MERGE_SAME'			=> 'You can’t merge and delete the same user.',
+	'CANNOT_MERGE_SELF'			=> 'You can’t merge yourself.',
 	'CANNOT_MERGE_FOUNDER'		=> 'Founders can only be deleted by other founders.',
 	'CANNOT_MERGE_SAME'			=> 'You cannot merge the user account <strong>%s</strong> with itself.',
 
@@ -42,4 +42,7 @@ $lang = array_merge($lang, array(
 	'OLD_USER_EXPLAIN'			=> 'The old user that is to be merged.  Beware, this user will be deleted upon merge.',
 	'NEW_USER'					=> 'New username',
 	'NEW_USER_EXPLAIN'			=> 'The new user that the other user should be merged into.  This user must already exist.',
+	'MERGE_REGDATE'				=> 'Merge registration date',
+	'MERGE_REGDATE_EXPLAIN'		=> 'Selecting yes here will replace the new users registration date with the old users registration date.',
+	'REGDATE'					=> 'Registration date',
 ));

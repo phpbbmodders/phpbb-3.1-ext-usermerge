@@ -25,4 +25,5 @@ if (empty($lang) || !is_array($lang))
 // Merge the following language entries into the lang array
 $lang = array_merge($lang, array(
 	'ACP_USER_MERGE'		=> 'User Merge',
+	'LOG_USERS_MERGED'	=> '<strong>Merged users</strong><br />%s',
 ));

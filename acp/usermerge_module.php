@@ -72,6 +72,7 @@ class usermerge_module
 
 		$old_username	= $this->request->variable('old_username', '', true);
 		$new_username	= $this->request->variable('new_username', '', true);
+		$reg_replace	= $this->request->variable('regreplace', 0);
 
 		$form_key = 'acp_user_merge';
 		add_form_key($form_key);
@@ -93,7 +94,7 @@ class usermerge_module
 		{
 			if ($old_user_id == $new_user_id)
 			{
-				$warning = sprintf($this->user->lang['CANNOT_MERGE_SAME'], $old_username);
+				$warning = $this->user->lang('CANNOT_MERGE_SAME', $old_username);
 				trigger_error($warning . adm_back_link($this->u_action), E_USER_WARNING);
 			}
 
@@ -101,7 +102,7 @@ class usermerge_module
 			if (confirm_box(true))
 			{
 				// Let's roll!
-				$this->user_merge($old_user_id, $new_user_id);
+				$this->user_merge($old_user_id, $new_user_id, $reg_replace);
 
 				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_USERS_MERGED', time(), array($old_username . ' &raquo; ' . $new_username));
 
@@ -114,31 +115,30 @@ class usermerge_module
 					'mode'				=> $mode,
 					'old_username'		=> $old_username,
 					'new_username'		=> $new_username,
+					'reg_replace'		=> $reg_replace,
 					'action'	=> 'merge',
 				);
 
 				// Be annoying.  Are you suuuuuuuuuuuure?  No, really, are you sure?
-				$merge_users_confirm = sprintf($this->user->lang['MERGE_USERS_CONFIRM'], $old_username);
+				$merge_users_confirm = $this->user->lang('MERGE_USERS_CONFIRM', $old_username);
 				confirm_box(false, $merge_users_confirm, build_hidden_fields($hidden_fields));
 			}
 		}
 
-		$user_merge_version = !empty($this->config['usermerge_version']) ? $this->config['usermerge_version'] : '';
 		// Assign template stuffs now.
 		$this->page_title = $this->user->lang['ACP_USER_MERGE_TITLE'];
 
 		$template->assign_vars(array(
 			'S_ERROR'					=> (sizeof($errors)) ? true : false,
 			'ERROR_MSG'					=> implode('<br />', $errors),
-			'USER_MERGE_VERSION'		=> $user_merge_version,
 			'U_FIND_OLD_USERNAME'		=> append_sid("{$this->phpbb_root_path}memberlist.$this->php_ext", 'mode=searchuser&amp;form=user_merge&amp;field=old_username&amp;select_single=true'),
 			'U_FIND_NEW_USERNAME'		=> append_sid("{$this->phpbb_root_path}memberlist.$this->php_ext", 'mode=searchuser&amp;form=user_merge&amp;field=new_username&amp;select_single=true'),
 			'OLD_USERNAME'				=> (!empty($old_user_id)) ? $old_username : '',
 			'NEW_USERNAME'				=> (!empty($new_user_id)) ? $new_username : '',
+			'REPLACE_REG'				=> $reg_replace,
 
 			'L_TITLE'					=> $this->user->lang['ACP_USER_MERGE_TITLE'],
 			'L_EXPLAIN'					=> $this->user->lang['ACP_USER_MERGE_EXPLAIN'],
-			'USERMERGE_VERSION'			=> $user_merge_version,
 			'U_ACTION'					=> $this->u_action,
 		));
 	}
@@ -155,7 +155,7 @@ class usermerge_module
 		// Grabbeth the old user's ID
 		if (!empty($username))
 		{
-			$sql = 'SELECT user_id, user_type
+			$sql = 'SELECT user_id, user_type, user_regdate
 				FROM ' . USERS_TABLE . "
 				WHERE username_clean = '" . $this->db->sql_escape(utf8_clean_string($username)) . "'";
 			$result = $this->db->sql_query($sql);
@@ -199,10 +199,11 @@ class usermerge_module
 	 * @author eviL3
 	 * @param int $old_user User id of the old user
 	 * @param int $new_user User id of the new user
+	 * @param int $replace_reg bool false or true
 	 *
 	 * @return void
 	 */
-	private function user_merge($old_user, $new_user)
+	private function user_merge($old_user, $new_user, $replace_reg)
 	{
 		if (!function_exists('user_add'))
 		{
@@ -235,7 +236,7 @@ class usermerge_module
 		$data = array();
 		foreach (array($old_user, $new_user) as $key)
 		{
-			$sql = 'SELECT user_id, username, user_colour
+			$sql = 'SELECT user_id, username, user_colour, user_regdate
 				FROM ' . USERS_TABLE . '
 					WHERE user_id = ' . $key;
 			$result = $this->db->sql_query($sql);
@@ -291,8 +292,8 @@ class usermerge_module
 		}
 
 		// We need to handle PM to_address and bcc_address separately.
-		$u_old_user = "u_$old_user"; // $old_user is casted to int somewhere around line 202 and not changed after that.
-		$u_new_user = "u_$new_user";
+		$u_old_user = "u_$old_user"; // $old_user is casted to int somewhere around line 210 and not changed after that.
+		$u_new_user = "u_$new_user"; // $new_user is casted to int somewhere around line 211 and not changed after that.
 		$sql = 'SELECT msg_id, to_address, bcc_address FROM ' . PRIVMSGS_TABLE . "
 				WHERE to_address LIKE '%$u_old_user%'
 					OR bcc_address LIKE '%$u_old_user%'";
@@ -324,6 +325,16 @@ class usermerge_module
 						WHERE msg_id = ' . (int) $row['msg_id'];
 				$this->db->sql_query_limit($sql, 1);
 			}
+		}
+
+		// admin wants to replace the reg date of the new user with that of the old user
+		if ($replace_reg)
+		{
+			// update the new user reg date
+			$sql = 'UPDATE ' .  USERS_TABLE . '
+				SET user_regdate = ' . (int) $data[$old_user]['user_regdate'] . '
+				WHERE user_id = ' . (int) $new_user;
+			$this->db->sql_query($sql);
 		}
 
 		user_delete('remove', $old_user);
