@@ -72,7 +72,7 @@ class usermerge_module
 
 		$old_username	= $this->request->variable('old_username', '', true);
 		$new_username	= $this->request->variable('new_username', '', true);
-		$reg_replace	= $this->request->variable('regreplace', 0);
+		$reg_replace	= $this->request->variable('reg_replace', 0);
 
 		$form_key = 'acp_user_merge';
 		add_form_key($form_key);
@@ -101,6 +101,7 @@ class usermerge_module
 			// Have we confirmed this change?
 			if (confirm_box(true))
 			{
+
 				// Let's roll!
 				$this->user_merge($old_user_id, $new_user_id, $reg_replace);
 
@@ -135,7 +136,7 @@ class usermerge_module
 			'U_FIND_NEW_USERNAME'		=> append_sid("{$this->phpbb_root_path}memberlist.$this->php_ext", 'mode=searchuser&amp;form=user_merge&amp;field=new_username&amp;select_single=true'),
 			'OLD_USERNAME'				=> (!empty($old_user_id)) ? $old_username : '',
 			'NEW_USERNAME'				=> (!empty($new_user_id)) ? $new_username : '',
-			'REPLACE_REG'				=> $reg_replace,
+			'REG_REPLACE'				=> (!empty($reg_replace)) ? $reg_replace : 0,
 
 			'L_TITLE'					=> $this->user->lang['ACP_USER_MERGE_TITLE'],
 			'L_EXPLAIN'					=> $this->user->lang['ACP_USER_MERGE_EXPLAIN'],
@@ -155,7 +156,7 @@ class usermerge_module
 		// Grabbeth the old user's ID
 		if (!empty($username))
 		{
-			$sql = 'SELECT user_id, user_type, user_regdate
+			$sql = 'SELECT user_id, user_type
 				FROM ' . USERS_TABLE . "
 				WHERE username_clean = '" . $this->db->sql_escape(utf8_clean_string($username)) . "'";
 			$result = $this->db->sql_query($sql);
