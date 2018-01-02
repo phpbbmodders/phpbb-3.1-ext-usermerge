@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Allows administrators to merge the accounts of two users",
     "homepage": "https://github.com/phpbbmodders/phpBB-3.1-ext-usermerge",
-    "version": "1.0.3",
-    "time": "2017-12-10",
+    "version": "1.0.4",
+    "time": "2018-01-01",
     "keywords": [
         "phpbb",
         "extension",
@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.4"
     },
     "require-dev": {
         "phpbb/epv": "dev-master"
