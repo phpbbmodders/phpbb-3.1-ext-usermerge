@@ -1,4 +1,4 @@
-#phpBB User Merge Extension
+# phpBB User Merge Extension
 
 [![Build Status](https://travis-ci.org/phpbbmodders/phpbb-3.1-ext-usermerge.svg)](https://travis-ci.org/phpbbmodders/phpbb-3.1-ext-usermerge)
 ## About
