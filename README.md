@@ -1,7 +1,7 @@
 #phpBB User Merge Extension
 
 [![Build Status](https://travis-ci.org/phpbbmodders/phpbb-3.1-ext-usermerge.svg)](https://travis-ci.org/phpbbmodders/phpbb-3.1-ext-usermerge)
-##About
+## About
 phpBB User Merge Extension allows an administrator of a forum to merge the accounts of two users.
 
 
