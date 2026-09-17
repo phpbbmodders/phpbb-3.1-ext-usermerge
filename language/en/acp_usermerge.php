@@ -27,8 +27,7 @@ $lang = array_merge($lang, array(
 	'VERSION' 			=> 'Version',
 	'NO_USER_FOR_MERGE'			=> 'A specified user for merging could not be located within the database.',
 	'NO_USER_SPECIFIED'			=> 'A user for merging was not specified.',
-	'CANNOT_MERGE_SAME'			=> 'You can’t merge and delete the same user.',
-	'CANNOT_MERGE_SELF'			=> 'You can’t merge yourself.',
+	'CANNOT_MERGE_SELF'			=> 'You canâ€™t merge yourself.',
 	'CANNOT_MERGE_FOUNDER'		=> 'Founders can only be deleted by other founders.',
 	'CANNOT_MERGE_SAME'			=> 'You cannot merge the user account <strong>%s</strong> with itself.',
 
