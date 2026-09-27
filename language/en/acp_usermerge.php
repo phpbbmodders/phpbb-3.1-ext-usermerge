@@ -1,12 +1,13 @@
 <?php
 /**
-*
-* User Merge extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2015 RMcGirr83 (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25) <http://www.phpbbmodders.net>
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-*/
+ *
+ * User Merge extension for the phpBB Forum Software package
+ *
+ * @copyright (c) 2015 RMcGirr83 (Rich McGirr) rmcgirr83@rmcgirr83.org & Jari Kanerva (tumba25) <http://www.phpbbmodders.net>
+ * @copyright (c) 2026, phpBB Modders, https://www.phpbbmodders.com/
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ */
 
 /**
 * @ignore
