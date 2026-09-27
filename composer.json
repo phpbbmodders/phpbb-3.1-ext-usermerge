@@ -2,21 +2,29 @@
     "name": "phpbbmodders/usermerge",
     "type": "phpbb-extension",
     "description": "Allows administrators to merge the accounts of two users",
-    "homepage": "https://github.com/phpbbmodders/phpBB-3.1-ext-usermerge",
+    "homepage": "https://www.phpbbmodders.com/",
     "version": "1.0.4",
     "time": "2018-01-01",
     "keywords": [
         "phpbb",
         "extension",
-        "user merge"
+        "users",
+        "merge",
+        "acp"
     ],
-    "license": "GPL-2.0",
+    "license": "GPL-2.0-only",
     "authors": [
+        {
+            "name": "phpBB Modders",
+            "email": "board@phpbbmodders.com",
+            "homepage": "https://www.phpbbmodders.com/",
+            "role": "Extension Developer"
+        },
         {
             "name": "Rich McGirr",
             "homepage": "http://phpbbmodders.net",
             "email": "rmcgirr83@phpbbmodders.net",
-            "role": "Developer"
+            "role": "Past Developer"
         }
     ],
     "require": {
