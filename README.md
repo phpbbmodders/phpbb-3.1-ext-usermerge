@@ -1,20 +1,43 @@
-# phpBB User Merge Extension
+# User Merge
 
-## About
-phpBB User Merge Extension allows an administrator of a forum to merge the accounts of two users.
+[![Tests](https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge/actions/workflows/tests.yml/badge.svg)](https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge/actions/workflows/tests.yml) [![Lint](https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge/actions/workflows/lint.yml/badge.svg)](https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge/actions/workflows/lint.yml)
 
-##Installation
-### 1. clone
-Clone (or download and move) the repository into the folder ext/phpbbmodders/usermerge:
+Lets administrators merge two user accounts into one.
 
-```
-cd phpBB3
-git clone https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge ext/phpbbmodders/usermerge/
-```
+## Features
 
-### 2. activate
-Go to admin panel -> tab customise -> Manage extensions -> enable User Merge
+- **Merge Users** page under **ACP → Users and Groups**.
+- Moves the old account's posts, topics, private messages, attachments, poll votes, reports, notifications and log entries to the new account, and adds up their post counts.
+- Optionally keep the old account's registration date.
+- The old account is deleted afterwards; a confirmation step comes first.
+- Founders can't be merged except by founders; an account can't be merged into itself.
 
-##Licensing
-phpBB Add User Mod is distributed under the terms of the GNU General Public
-License 2 (GPL). A copy has been included in the package (license.txt).
+## Requirements
+
+- phpBB 3.3.19 or later
+- PHP 7.4 or later
+
+## Installation
+
+1. Copy the extension to `/ext/phpbbmodders/usermerge`
+2. In the Administration Control Panel, go to **Customise → Manage extensions**
+3. Enable the **User Merge** extension
+
+## Contributing
+
+Contributions are welcome!
+
+- **Bug reports**: [Open an issue](https://github.com/phpbbmodders/phpbb-3.1-ext-usermerge/issues).
+- **Everything else** (questions, feature requests, ideas, general discussion): [Use Discussions](https://github.com/orgs/phpbbmodders/discussions), or the [community forum](https://www.phpbbmodders.com/community/).
+- Pull requests are welcome for bug fixes or discussed features.
+
+## Acknowledgments
+
+- Original extension by Rich McGirr ([RMcGirr83](https://github.com/rmcgirr83)) and Jari Kanerva (tumba25).
+- Code review, bug fixes, and documentation assisted by [Claude](https://www.anthropic.com/claude).
+
+## License
+
+This extension is licensed under the **GNU General Public License v2.0**.
+
+See [license.txt](license.txt) for more information.
