@@ -1,7 +1,7 @@
 {
     "name": "phpbbmodders/usermerge",
     "type": "phpbb-extension",
-    "description": "Allows administrators to merge the accounts of two users",
+    "description": "Lets administrators merge two user accounts into one.",
     "homepage": "https://www.phpbbmodders.com/",
     "version": "1.0.4",
     "time": "2018-01-01",
