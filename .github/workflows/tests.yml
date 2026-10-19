@@ -29,6 +29,8 @@ jobs:
     with:
       # Your extension vendor/package name
       EXTNAME: phpbbmodders/usermerge
+      # EPV runs in the epv job below instead
+      EPV: 0
 
       # Run MySQL/MariaDB tests?
       RUN_MYSQL_JOBS: 0
@@ -48,3 +50,10 @@ jobs:
       # The MySQL and PostgreSQL jobs run tests across multiple PHP versions.
       # List the PHP versions you want your extension tested with.
       PHP_VERSION_MATRIX: '["8.2", "8.3", "8.4"]'
+
+  # EPV (Extension Pre Validator), failing on any Fatal or Error finding not
+  # listed in .github/epv-allowed.txt
+  epv:
+    uses: phpbbmodders/.github/.github/workflows/epv.yml@v1
+    with:
+      EXTNAME: phpbbmodders/usermerge
