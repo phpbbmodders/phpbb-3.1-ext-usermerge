@@ -15,7 +15,7 @@ Lets administrators merge two user accounts into one.
 ## Requirements
 
 - phpBB 3.3.19 or later
-- PHP 7.4 or later
+- PHP 8.1 or later
 
 ## Installation
 
